@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<style type="text/css">
+		body{
+			background-image: url("https://c4.wallpaperflare.com/wallpaper/707/220/899/gradient-blue-pink-abstract-art-wallpaper-preview.jpg");
+			background-size: cover;
+			text-align: center;
+			
+		}
+		#pass{
+             border: 1px solid red;
+             padding: 1%;
+		}
+		#username{
+			padding: 0.4%;
+			font-size: 1rem;
+			font-family: italic;
+			margin: 7% 0% 2% 0%;
+
+		}
+		#password{
+			padding: 0.4%;
+			font-size: 1rem;
+			font-family: italic;
+			margin-bottom: 2%;
+			
+		}
+		#click{
+			background-color: goldenrod;
+			color: white;
+			width: 5%;
+			padding: 0.3%;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function store(){
+			var username=document.getElementById("username").value;
+		    console.log(username)
+		    var password=document.getElementById("password").value;
+		    console.log(password)
+		    
+		fetch("http://localhost:5000/newData",{
+			method:"POST",
+			headers:{
+				"content-Type":"application/json"
+			},
+			body:JSON.stringify({name:username,age:password})
+		})
+	}
+	</script>
+</head>
+<body>
+  <div class="pass">
+  	<input  type="text" placeholder="username" id="username"/></br>
+    <input  type="text" placeholder="password" id="password"/></br>
+    <button  id="click" onclick="store()">submit</button>
+  </div>
+</body>
+</html>
